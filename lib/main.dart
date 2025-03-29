@@ -18,8 +18,8 @@ class MyApp extends StatelessWidget {
               repeat: ImageRepeat.repeat, // Tile the image
             ),
           ),
-          child: Center(
-          child: Column(
+            child: Center(
+            child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               komitea,

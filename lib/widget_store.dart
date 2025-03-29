@@ -3,8 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-//Sivun yläosa {
+// Yläosio 
 final tervetuloToivotus = Text(
   'Teidät on toivotettu tervetulleiksi',
   style: GoogleFonts.getFont('Martel',fontSize: 24, fontWeight: FontWeight.normal, color: const Color.fromARGB(255, 255, 255, 255)),
@@ -16,7 +15,6 @@ final lakkiKuvaIso = Image.asset('assets/images/YOlakkiisometric.png', width: 20
 
 final komitea = FittedBox(fit: BoxFit.scaleDown, child: Row(children: [lakkiKuva,tervetuloToivotus,lakkiKuvaIso], mainAxisAlignment: MainAxisAlignment.center));
               
-
 final kaunisTeksti = Text(
   'Oton ylioppilasjuhlaan',
   style: GoogleFonts.getFont('Mea Culpa',fontSize: 45, color: const Color.fromARGB(255, 218, 204, 7)),
@@ -44,14 +42,85 @@ final sijaintiLinkki = GestureDetector(
 );
 
 final aikaTeksti = Text(
-  '31.5. klo 19:00',
-  style: TextStyle(fontSize: 24, fontWeight: FontWeight.normal, color: const Color.fromARGB(255, 255, 255, 255)),
+'31.5. klo XX:00',
+style: TextStyle(fontSize: 24, fontWeight: FontWeight.normal, color: const Color.fromARGB(255, 255, 255, 255)),
+);
+//}
+
+final faqOtsikko = Text(
+  'FAQ',
+  style: GoogleFonts.getFont('Lexend',fontSize: 48, fontWeight: FontWeight.bold, color: const Color.fromARGB(255, 255, 255, 255)),
+);
+
+final kysymys1 = Text(
+  'Onko tarjolla ruokaa?',
+  style: GoogleFonts.getFont('Lexend',fontSize: 21, fontWeight: FontWeight.bold, color: const Color.fromARGB(255, 255, 255, 255)),
+);
+
+final vastaus1 = Text(
+  'Tarjolla on kevyttä ruokaa ja herkullista herkkua',
+  style: GoogleFonts.getFont('Lexend',fontSize: 16, fontWeight: FontWeight.normal, color: const Color.fromARGB(255, 255, 255, 255)),
+);
+
+final kysymys2 = Text(
+  'Erikoisruokavaliot?',
+  style: GoogleFonts.getFont('Lexend',fontSize: 21, fontWeight: FontWeight.bold, color: const Color.fromARGB(255, 255, 255, 255)),
+);
+
+final vastaus2 = Text(
+  'Lähes kaikille on jotakin, ilmoitathan harvinaislaatuisemmat rajoitteet etukäteen!',
+  style: GoogleFonts.getFont('Lexend',fontSize: 16, fontWeight: FontWeight.normal, color: const Color.fromARGB(255, 255, 255, 255)),
+);
+
+final kysymys3 = Text(
+  'Mitä toisin lahjaksi?',
+  style: GoogleFonts.getFont('Lexend',fontSize: 21, fontWeight: FontWeight.bold, color: const Color.fromARGB(255, 255, 255, 255)),
+);
+
+final vastaus3 = Text(
+  'Lahjaa ei tarvitse tuoda, jos haluat kuitenkin muistaa jollakin tässä viite:',
+  style: GoogleFonts.getFont('Lexend',fontSize: 16, fontWeight: FontWeight.normal, color: const Color.fromARGB(255, 255, 255, 255)),
+);
+
+final vastaus31 = Text(
+  ' + Kylmä käteinen                               ',
+  style: GoogleFonts.getFont('Lexend',fontSize: 16, fontWeight: FontWeight.normal, color: const Color.fromARGB(255, 9, 255, 0)),
+);
+final vastaus32 = Text(
+  ' + Lahjakortit                                    ',
+  style: GoogleFonts.getFont('Lexend',fontSize: 16, fontWeight: FontWeight.normal, color: const Color.fromARGB(255, 9, 255, 0)),
+);
+final vastaus33 = Text(
+  ' + Aineettomat lahjat (teatteriliput, tms)',
+  style: GoogleFonts.getFont('Lexend',fontSize: 16, fontWeight: FontWeight.normal, color: const Color.fromARGB(255, 9, 255, 0)),
+);
+final vastaus34 = Text(
+  ' + Lahjoitukset (WWF, Punainen risti, animalia...)',
+  style: GoogleFonts.getFont('Lexend',fontSize: 16, fontWeight: FontWeight.normal, color: const Color.fromARGB(255, 9, 255, 0)),
+);
+final vastaus35 = Text(
+  ' - Aineelliset lahjat (kysymättä)',
+  style: GoogleFonts.getFont('Lexend',fontSize: 16, fontWeight: FontWeight.normal, color: const Color.fromARGB(255, 255, 0, 0)),
 );
 
 final column1Container = Container(
-  color: Colors.lightBlue,
-  child: Center(child: Text('Column 1')),
-);
+  color: const Color.fromARGB(44, 122, 124, 125),
+  child: Center(child: SingleChildScrollView(
+    scrollDirection: Axis.vertical,
+    child: Column(children: [
+    faqOtsikko,
+    SizedBox(width: 10),
+    kysymys1,
+    vastaus1,
+    kysymys2,
+    vastaus2,
+    kysymys3,
+    vastaus3,
+    vastaus31,
+    vastaus32,
+    vastaus33,
+    vastaus34,
+    vastaus35 ]))));
 
 final column2Container = Container(
   color: Colors.orange,
@@ -61,7 +130,7 @@ final column2Container = Container(
 final columnSpacing = SizedBox(width: 20);
 
 final columnPadding = const EdgeInsets.all(8.0);
-//}
+
 
 final tikki = Column(children: [
   SizedBox(height: 20),
