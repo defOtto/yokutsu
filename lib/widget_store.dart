@@ -4,14 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+//Sivun yläosa {
 final tervetuloToivotus = Text(
-  'Sinut on toivotettu tervetulleeksi',
+  'Teidät on toivotettu tervetulleiksi',
   style: GoogleFonts.getFont('Martel',fontSize: 24, fontWeight: FontWeight.normal, color: const Color.fromARGB(255, 255, 255, 255)),
 );
 
 final lakkiKuva = Image.asset('assets/images/YOlakkisuora.webp', width: 20, height: 20);
 
 final lakkiKuvaIso = Image.asset('assets/images/YOlakkiisometric.png', width: 20, height: 20);
+
+final komitea = FittedBox(fit: BoxFit.scaleDown, child: Row(children: [lakkiKuva,tervetuloToivotus,lakkiKuvaIso], mainAxisAlignment: MainAxisAlignment.center));
+              
 
 final kaunisTeksti = Text(
   'Oton ylioppilasjuhlaan',
@@ -57,3 +61,23 @@ final column2Container = Container(
 final columnSpacing = SizedBox(width: 20);
 
 final columnPadding = const EdgeInsets.all(8.0);
+//}
+
+final tikki = Column(children: [
+  SizedBox(height: 20),
+  Divider(
+    color: const Color.fromARGB(255, 255, 255, 255),
+    thickness: 2,
+    indent: 20,
+    endIndent: 20,
+    height: 1,
+  ), 
+  Divider(
+    color: const Color.fromARGB(255, 162, 162, 162),
+    thickness: 2,
+    indent: 20,
+    endIndent: 20,
+    height: 1,
+  ),
+  SizedBox(height: 20),]
+);

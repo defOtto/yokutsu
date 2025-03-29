@@ -22,11 +22,11 @@ class MyApp extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Row(children: [lakkiKuva,tervetuloToivotus,lakkiKuvaIso], mainAxisAlignment: MainAxisAlignment.center),
+              komitea,
               kaunisTeksti,
               Row(children: [sijaintiLogo, sijaintiLinkki], mainAxisAlignment: MainAxisAlignment.center),
               Row(children: [aikaLogo, aikaTeksti], mainAxisAlignment: MainAxisAlignment.center),
-              Divider(),
+              tikki,
               columnSpacing,
               Expanded(
                 child: Row(
