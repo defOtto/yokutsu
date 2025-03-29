@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'interactive.dart';
 // Yläosio 
 final tervetuloToivotus = Text(
   'Teidät on toivotettu tervetulleiksi',
@@ -52,13 +53,23 @@ final faqOtsikko = Text(
   style: GoogleFonts.getFont('Lexend',fontSize: 48, fontWeight: FontWeight.bold, color: const Color.fromARGB(255, 255, 255, 255)),
 );
 
+final kysymys0 = Text(
+  'Miten ilmoittaudun saapuvaksi?',
+  style: GoogleFonts.getFont('Lexend',fontSize: 21, fontWeight: FontWeight.bold, color: const Color.fromARGB(255, 255, 255, 255)),
+);
+
+final vastaus0 = Text(
+  'Ilmoittaudu viestillä kertoen, kuinka moni on tulossa paikalle teiltä.',
+  style: GoogleFonts.getFont('Lexend',fontSize: 16, fontWeight: FontWeight.normal, color: const Color.fromARGB(255, 255, 255, 255)),
+);
+
 final kysymys1 = Text(
   'Onko tarjolla ruokaa?',
   style: GoogleFonts.getFont('Lexend',fontSize: 21, fontWeight: FontWeight.bold, color: const Color.fromARGB(255, 255, 255, 255)),
 );
 
 final vastaus1 = Text(
-  'Tarjolla on kevyttä ruokaa ja herkullista herkkua',
+  'Tarjolla on kevyttä ruokaa ja herkullista herkkua.',
   style: GoogleFonts.getFont('Lexend',fontSize: 16, fontWeight: FontWeight.normal, color: const Color.fromARGB(255, 255, 255, 255)),
 );
 
@@ -78,7 +89,7 @@ final kysymys3 = Text(
 );
 
 final vastaus3 = Text(
-  'Lahjaa ei tarvitse tuoda, jos haluat kuitenkin muistaa jollakin tässä viite:',
+  'Lahjaa ei tarvitse tuoda, jos haluat kuitenkin muistaa jollakin tässä ohjeet:',
   style: GoogleFonts.getFont('Lexend',fontSize: 16, fontWeight: FontWeight.normal, color: const Color.fromARGB(255, 255, 255, 255)),
 );
 
@@ -99,7 +110,7 @@ final vastaus34 = Text(
   style: GoogleFonts.getFont('Lexend',fontSize: 16, fontWeight: FontWeight.normal, color: const Color.fromARGB(255, 9, 255, 0)),
 );
 final vastaus35 = Text(
-  ' - Aineelliset lahjat (kysymättä)',
+  ' - Aineelliset lahjat                             ',
   style: GoogleFonts.getFont('Lexend',fontSize: 16, fontWeight: FontWeight.normal, color: const Color.fromARGB(255, 255, 0, 0)),
 );
 
@@ -110,6 +121,8 @@ final column1Container = Container(
     child: Column(children: [
     faqOtsikko,
     SizedBox(width: 10),
+    kysymys0,
+    vastaus0,
     kysymys1,
     vastaus1,
     kysymys2,
@@ -124,7 +137,7 @@ final column1Container = Container(
 
 final column2Container = Container(
   color: Colors.orange,
-  child: Center(child: Text('Column 2')),
+  child: Center(child: MyInteractiveText()),
 );
 
 final columnSpacing = SizedBox(width: 20);
