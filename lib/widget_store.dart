@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:yokutsu/intrHome.dart';
 import 'interactive.dart';
 
 
@@ -206,7 +207,7 @@ final vastaus32 = Text(
   ),
 );
 final vastaus33 = Text(
-  ' + Aineettomat lahjat (teatteriliput, tms)',
+  ' + Aineettomat lahjat (teatteriliput, tms.)',
   textAlign: TextAlign.center,
     style: GoogleFonts.getFont(
     'Lexend',
@@ -216,7 +217,7 @@ final vastaus33 = Text(
   ),
 );
 final vastaus34 = Text(
-  ' + Lahjoitukset (WWF, Punainen risti, animalia...)',
+  ' + Lahjoitukset (WWF, Punainen risti, Animalia...)',
   textAlign: TextAlign.center,
     style: GoogleFonts.getFont(
     'Lexend',
@@ -282,9 +283,32 @@ final column2Container = Container(
   child: Center(
   child: SingleChildScrollView(
     scrollDirection: Axis.vertical,
+    child: Center(child: Column(children: [PeliOtsikko, SYOpeliStart()]))
+)));
+
+final gpContainer = Container(
+  decoration: BoxDecoration(
+    image: DecorationImage(
+      image: AssetImage('assets/images/BGcollageDARK.jpg'), // Replace with your image path
+      repeat: ImageRepeat.repeat, // Tile the image
+    ),
+  ),
+  child: Center(
+  child: SingleChildScrollView(
+    scrollDirection: Axis.vertical,
     child: Center(child: Column(children: [PeliOtsikko, SYOpeli()]))
 )));
 
+class GamePage extends StatefulWidget {
+  @override
+  _GamePageState createState() => _GamePageState();
+}
+
+class _GamePageState extends State<GamePage> {
+@override
+  Widget build(BuildContext context) {
+    return Scaffold(body: gpContainer, backgroundColor: const Color.fromARGB(255, 0, 0, 0));
+  }}
 final columnSpacing = SizedBox(width: 20);
 
 final columnPadding = const EdgeInsets.all(8.0);

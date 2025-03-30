@@ -2,12 +2,15 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:yokutsu/main.dart';
 import 'dart:html' as html;
+
+import 'package:yokutsu/widget_store.dart';
 
 
 final kysymykset = [
   "Kun lapsen jalat koskettavat alastulossa trampoliinin pintaa, trampoliini alkaa hidastaa lapsen vauhtia. Mikä seuraavista väittämistä pätee tilanteessa?", 
-  "Valitse sopivin rakennemalli päänäkökulmalle: Somepaasto parantaa elämänlaatua.",
+  "Valitse sopivin rakennemalli tekstille, jonka päänäkökulma on: ”Somepaasto parantaa elämänlaatua.”",
   "Valitse välimerkki: Valmennuksiin kuuluu pelitekniikan hiomisen lisäksi monia muitakin asioita __ pelaajat harjoittelevat esimerkiksi tiimitaitoja ja saavat henkistä valmennusta, jotta he kestävät kilpailupaineet.",
   "Väite ”Yksikään aviopuoliso ei ole naimaton” ilmaisee Immanuel Kantin mukaan",
   "Funktion derivaatan arvo kertoo …",
@@ -17,11 +20,11 @@ final kysymykset = [
   "Valitse se järjestys, jossa tekstilajit on järjestetty vaikuttavimmasta informatiivisimpaan.",
   "Katuporan äänen intensiteettitaso 10 metrin etäisyydellä porasta on 100 dB. Kuinka suuri on kahden katuporan yhdessä tuottaman äänen intensiteettitaso samalla etäisyydellä?",
   "Mikä lause kuuluu tyhjään kohtaan?",
-  "Mikä sana tulee tyhjään kohtaan: 2016 konnte ich einen Monat als Gastschüler in Finnland verbringen. Mir hat es hier gleich sehr gut",
+  "Mikä sana tulee tyhjään kohtaan: 2016 konnte ich einen Monat als Gastschüler in Finnland verbringen. Mir hat es hier gleich sehr gut ____",
   "Kahdesta käämistä koostuvalla muuntajalla muutetaan",
   "Täytä tyhjä: _______ tarkoittaa jonkin teorian tai väitteen kumoamista tai osoittamista vääräksi.",
   "What is the environment like in the novel:",
-  "Valitse vastaavin vaihtoehto alleviivatulle sanalle: For centuries Western culture has been permeated by the idea that humans are selfish creatures. ",
+  "Valitse vastaavin vaihtoehto korostetulle sanalle: For centuries Western culture has been " "PERMEATED" " by the idea that humans are selfish creatures. ",
   "Millainen päätelmä on: Jos Musti on kala, se osaa hengittää veden alla. Musti ei osaa hengittää veden alla, siispä se ei ole kala.",
   "Mikä sana tulee tyhjään kohtaan: Lennart, 17, aus Berlin erzählt über sein Hobby: „Beatboxer kennen ____ unter dem Namen Lennsi. [...]”",
   "Ympäristön aiheuttama fenotyypin muuntelu eli muovautumismuuntelu auttaa eliöitä sopeutumaan monenlaisiin elinympäristöihin. Mikä seuraavista vaihtoehdoista kuvaa parhaitenmuovautumismuuntelua?",
@@ -204,7 +207,7 @@ class SYOpeli extends StatefulWidget {
 
 class _SYOpeliState extends State<SYOpeli> {
   int counter = 0;
-  int nextB = 0;
+  int nextB = 1;
   int oikeat = 0;
   int vaarat = 0;
   List<int> vastauksetLog = [];
@@ -214,7 +217,6 @@ class _SYOpeliState extends State<SYOpeli> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-      if(counter == -100) IconButton(onPressed: null, icon: const Icon(Icons.downloading_outlined), tooltip: "lolo",),
         if(nextB == 0) testChange,
         if(nextB == 0) IconButton(
             icon: const Icon(Icons.arrow_forward),
@@ -223,6 +225,7 @@ class _SYOpeliState extends State<SYOpeli> {
             onPressed: () {
               setState(() {
                 nextB = 1;
+                Navigator.push(context, MaterialPageRoute(builder: (context) => GamePage()));
               });
             },
         ),
@@ -232,6 +235,7 @@ class _SYOpeliState extends State<SYOpeli> {
               style: GoogleFonts.getFont('Lexend', color: const Color.fromARGB(255, 255, 255, 255)), softWrap: true, textAlign: TextAlign.center,
               ),
               Image(image: AssetImage('assets/images/' + imgNames[counter]), height: imgSizesh[counter], width: imgSizesw[counter],),
+              SizedBox(height: 5),
               ElevatedButton(onPressed: (){
                 setState(() {
                   if (vastauksetOikea[counter] == 1){oikeat++;}
@@ -241,8 +245,10 @@ class _SYOpeliState extends State<SYOpeli> {
                   });},
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.0), // Adjust the radius
-              )), child: Text(vastauksetA[counter])
+                  borderRadius: BorderRadius.circular(8.0)),
+                    backgroundColor: Color.fromARGB(55, 255, 255, 255),
+                    foregroundColor: Color.fromARGB(255, 255, 255, 255)), 
+                    child: Text(vastauksetA[counter], textAlign: TextAlign.center)
               ),
               SizedBox(height: 10),
               if(options[counter] > 1) ElevatedButton(
@@ -255,8 +261,10 @@ class _SYOpeliState extends State<SYOpeli> {
                   });}, 
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.0))),
-                  child: Text(vastauksetB[counter])), // Adjust the radius,
+                    borderRadius: BorderRadius.circular(8.0)),
+                    backgroundColor: Color.fromARGB(55, 255, 255, 255),
+                    foregroundColor: Color.fromARGB(255, 255, 255, 255)),
+                  child: Text(vastauksetB[counter], textAlign: TextAlign.center)), // Adjust the radius,
               if(options[counter] > 1) SizedBox(height: 10),
               if(options[counter] > 2) ElevatedButton(onPressed: (){
                 setState(() {
@@ -267,8 +275,10 @@ class _SYOpeliState extends State<SYOpeli> {
                   });}, 
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.0))),
-                  child: Text(vastauksetC[counter])),
+                  borderRadius: BorderRadius.circular(8.0)),
+                    backgroundColor: Color.fromARGB(55, 255, 255, 255),
+                    foregroundColor: Color.fromARGB(255, 255, 255, 255)),
+                  child: Text(vastauksetC[counter], textAlign: TextAlign.center)),
               if(options[counter] > 2)SizedBox(height: 10),
               if(options[counter] > 3)ElevatedButton(onPressed:  (){
                 setState(() {
@@ -279,8 +289,10 @@ class _SYOpeliState extends State<SYOpeli> {
                   });}, 
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.0))),
-                  child: Text(vastauksetD[counter])),
+                  borderRadius: BorderRadius.circular(8.0)),
+                    backgroundColor: Color.fromARGB(55, 255, 255, 255),
+                    foregroundColor: Color.fromARGB(255, 255, 255, 255)),
+                  child: Text(vastauksetD[counter], textAlign: TextAlign.center,)),
               SizedBox(height: 10),
               Row(children: [
                 Text(oikeat.toString(), style: GoogleFonts.getFont('Lexend', color: const Color.fromARGB(255, 0, 255, 42), fontWeight: FontWeight.bold)),
@@ -299,29 +311,36 @@ class _SYOpeliState extends State<SYOpeli> {
           Text('Saitte ' + oikeat.toString() + ' oikein. Se on ' + (oikeat-16).toString() + ' enemmän kuin ylioppilas Otto. Erinomainen suoritus!\nTodistus:', style: GoogleFonts.getFont('Lexend', color: const Color.fromARGB(255, 255, 255, 255)),  textAlign: TextAlign.center),
           Image(image: AssetImage('assets/images/yli-ylioppilastodistus.png'), height: 300, width: 300,),
           SizedBox(height: 5),
-          IconButton(onPressed: downloadFileMax, icon: const Icon(Icons.arrow_forward), color: const Color.fromARGB(255, 255, 255, 255), tooltip: 'Lataa',),
-          SizedBox(height: 10),
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: [IconButton(onPressed: downloadFileMax, icon: const Icon(Icons.file_download_outlined), color: const Color.fromARGB(255, 255, 255, 255), tooltip: 'Lataa',),
+          SizedBox(width: 5),
+          IconButton(onPressed: goBack, icon: const Icon(Icons.arrow_back), color: const Color.fromARGB(255, 255, 255, 255), tooltip: 'Takaisin',),
+          SizedBox(height: 10),])
         ],),
         if(nextB == 1 && counter >= 20 && oikeat == 16)
         Column(children: [
           Text('Ehkäpä!', style: GoogleFonts.getFont('Lexend', color: const Color.fromARGB(255, 255, 255, 255))),
           Text('Saitte 16 oikein. Se on yhtä paljon, kuin ylioppilas Otolla. Hyvää työtä!\nTodistus:', style: GoogleFonts.getFont('Lexend', color: const Color.fromARGB(255, 255, 255, 255)), textAlign: TextAlign.center),
-          Image(image: AssetImage('assets/images/ylioppilastodistus.png'), height: 519, width: 519,),
+          Image(image: AssetImage('assets/images/ylioppilastodistus.png'), height: 300, width: 300,),
+          SizedBox(width: 5),
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: [IconButton(onPressed: downloadFileNorm, icon: const Icon(Icons.file_download_outlined), color: const Color.fromARGB(255, 255, 255, 255), tooltip: 'Lataa',),
           SizedBox(height: 5),
-          IconButton(onPressed: downloadFileNorm, icon: const Icon(Icons.arrow_forward), color: const Color.fromARGB(255, 255, 255, 255), tooltip: 'Lataa',),
-          SizedBox(height: 10),
+          IconButton(onPressed: goBack, icon: const Icon(Icons.arrow_back), color: const Color.fromARGB(255, 255, 255, 255), tooltip: 'Takaisin',),
+          SizedBox(height: 5),])
         ],),
         if(nextB == 1 && counter >= 20 && oikeat < 16)
         Column(children: [
           Text('Ei aivan!', style: GoogleFonts.getFont('Lexend', color: const Color.fromARGB(255, 255, 255, 255))),
           Text('Saitte ' + oikeat.toString() + ' oikein. Se on ' + (16-oikeat).toString() + ' vähemmän kuin ylioppilas Otto. Hyvä yritys!', style: GoogleFonts.getFont('Lexend', color: const Color.fromARGB(255, 255, 255, 255)), textAlign: TextAlign.center,),
+          SizedBox(height: 5),
+          IconButton(onPressed: goBack, icon: const Icon(Icons.arrow_back), color: const Color.fromARGB(255, 255, 255, 255), tooltip: 'Takaisin',),
+          SizedBox(height: 10),
         ],),
       ],
     );
   }
 
   void downloadFileMax() {
-    final anchor1 = html.AnchorElement(href: 'ssets/images/yli-ylioppilastodistus.png') // Replace with your file URL
+    final anchor1 = html.AnchorElement(href: 'assets/images/yli-ylioppilastodistus.png') // Replace with your file URL
       ..setAttribute('download', 'yli-ylioppilastodistus.png') // Replace with desired filename
       ..click();
   }
@@ -329,5 +348,8 @@ class _SYOpeliState extends State<SYOpeli> {
     final anchor2 = html.AnchorElement(href: 'assets/images/ylioppilastodistus.png') // Replace with your file URL
       ..setAttribute('download', 'ylioppilastodistus.png') // Replace with desired filename
       ..click();
+  }
+  void goBack() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp()));
   }
 }
