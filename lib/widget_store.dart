@@ -175,7 +175,7 @@ final kysymys3 = Text(
 );
 
 final vastaus3 = Text(
-  'Lahjaa ei tarvitse tuoda, jos haluat kuitenkin muistaa jollakin tässä ohjeet:',
+  'Lahjaa ei tarvitse tuoda, jos haluat kuitenkin muistaa jollakin, tässä ohjeet:',
   textAlign: TextAlign.center,
     style: GoogleFonts.getFont(
     'Lexend',
