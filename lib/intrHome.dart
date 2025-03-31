@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'dart:html' as html;
+import 'package:web/web.dart' as web;
 
 import 'package:yokutsu/widget_store.dart';
 
@@ -20,6 +20,12 @@ class SYOpeliStart extends StatefulWidget {
 }
 
 class _SYOpeliStartState extends State<SYOpeliStart> {
+  @override
+  void initState() {
+    super.initState();
+    web.document.title = 'Kutsu YO-juhliin'; // Set the page title using package:web
+  }
+  
   int counter = 0;
   int nextB = 0;
   int oikeat = 0;
