@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:yokutsu/main.dart';
-import 'dart:html' as html;
 import 'package:web/web.dart' as web;
 import 'package:flutter/foundation.dart';
 
@@ -476,7 +475,7 @@ class _SYOpeliState extends State<SYOpeli> {
               ),
               Image(
                 image: AssetImage(
-                  'assets/assets/images/yli-ylioppilastodistus.png',
+                  'assets/images/yli-ylioppilastodistus.png',
                 ),
                 height: 300,
                 width: 300,
@@ -523,7 +522,7 @@ class _SYOpeliState extends State<SYOpeli> {
               ),
               Image(
                 image: AssetImage(
-                  'assets/assets/images/ylioppilastodistus.png',
+                  'assets/images/ylioppilastodistus.png',
                 ),
                 height: 300,
                 width: 300,
@@ -589,18 +588,24 @@ class _SYOpeliState extends State<SYOpeli> {
   void downloadFileMaxWeb() {
     // when building in release the file structure changes ... 
     String url = "assets/images/yli-ylioppilastodistus.png";
+    if (kReleaseMode) {
+      url = "assets/$url";
+    }
     web.HTMLAnchorElement anchorElement = web.HTMLAnchorElement();
     anchorElement.href = url;
-    anchorElement.download = url;
+    anchorElement.download = "yli-ylioppilastodistus.png";
     anchorElement.click();
   }
   
   void downloadFileNormWeb() {
     // when building in release the file structure changes ... 
     String url = "assets/images/ylioppilastodistus.png";
+    if (kReleaseMode) {
+      url = "assets/$url";
+    }
     web.HTMLAnchorElement anchorElement = web.HTMLAnchorElement();
     anchorElement.href = url;
-    anchorElement.download = url;
+    anchorElement.download = "ylioppilastodistus.png";
     anchorElement.click();
   }
 

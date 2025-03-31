@@ -12,7 +12,7 @@ final tervetuloToivotus = Text(
   'Teidät on toivotettu tervetulleiksi',
   style: GoogleFonts.getFont(
     'Martel',
-    fontSize: 24,
+    fontSize: 34,
     fontWeight: FontWeight.normal,
     color: const Color.fromARGB(255, 255, 255, 255),
   ),
@@ -110,7 +110,7 @@ final kysymys0 = Text(
 );
 
 final vastaus0 = Text(
-  'Ilmoittaudu viestillä kertoen, kuinka moni on tulossa paikalle teiltä.',
+  'Ilmoittaudu viestillä XX.XX. mennessä kertoen, kuinka moni on tulossa paikalle teiltä.',
   textAlign: TextAlign.center,
   style: GoogleFonts.getFont(
     'Lexend',
