@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
         body: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/images/BGcollageDARK.jpg'), // Replace with your image path
+              image: AssetImage('assets/images/bgt8.png'), // Replace with your image path
               repeat: ImageRepeat.repeat, // Tile the image
             ),
           ),

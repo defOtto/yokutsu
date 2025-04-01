@@ -12,7 +12,7 @@ final introTeksti = Text("""Tiedossa on ylioppilasjuhlat.
 Voittajat palkitaan juhlissa!\n
 Ettehän käytä apuvälineitä tai huijaa! Jokainen henkilö pelatkoon vain kerran.
 """, 
-  style: GoogleFonts.getFont('Lexend', color: const Color.fromARGB(255, 255, 255, 255)),textAlign: TextAlign.center,);
+  style: GoogleFonts.getFont('Lexend', color: const Color.fromRGBO(255, 244, 192, 1)),textAlign: TextAlign.center,);
 
 class SYOpeliStart extends StatefulWidget {
   @override
@@ -40,7 +40,7 @@ class _SYOpeliStartState extends State<SYOpeliStart> {
         if(nextB == 0) testChange,
         if(nextB == 0) IconButton(
             icon: const Icon(Icons.arrow_forward),
-            color: const Color.fromARGB(255, 255, 255, 255),
+            color: const Color.fromARGB(255, 244, 192, 1),
             tooltip: 'Aloita',
             onPressed: () {
               setState(() {

@@ -466,7 +466,7 @@ class _SYOpeliState extends State<SYOpeli> {
                     oikeat.toString() +
                     ' oikein. Se on ' +
                     (oikeat - 16).toString() +
-                    ' enemmän kuin ylioppilas Otto. Erinomainen suoritus!\nTodistus:',
+                    ' enemmän kuin ylioppilas Otto. Erinomainen suoritus!\nTässä todistus, ota se talteen:',
                 style: GoogleFonts.getFont(
                   'Lexend',
                   color: const Color.fromARGB(255, 255, 255, 255),
@@ -513,7 +513,7 @@ class _SYOpeliState extends State<SYOpeli> {
                 ),
               ),
               Text(
-                'Saitte 16 oikein. Se on yhtä paljon, kuin ylioppilas Otolla. Hyvää työtä!\nTodistus:',
+                'Saitte 16 oikein. Se on yhtä paljon, kuin ylioppilas Otolla. Hyvää työtä!\nTässä todistus, ota se talteen:',
                 style: GoogleFonts.getFont(
                   'Lexend',
                   color: const Color.fromARGB(255, 255, 255, 255),
